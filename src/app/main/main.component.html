@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="header">Información Personal</h1>
+        </div>
+    </div>
+    <form [formGroup]="peopleInformation" (ngSubmit)="consultBDay()">
+        <div class="row">
+            <div class="col-8">
+                <label for="forName">Nombre Completo</label>
+                <input type="text" class="form-control" placeholder="Ingrese nombre Completo" formControlName="fullName"
+                    id="forName" maxlength="50" required>
+                <small id="rutHelp" class="form-text text-muted">Ejemplo: Jesus Alberto Castellanos Santiago</small>
+            </div>
+            <div class="col-4">
+                <label for="forName">Fecha de nacimiento</label>
+                <input type="text" class="form-control" placeholder="Ingrese Fecha de Nacimeinto"
+                    formControlName="birthDate" id="forName" maxlength="10" required>
+                <small id="rutHelp" class="form-text text-muted">Ejemplo: 01-01-2020</small>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-success separator" type="submit" data-toggle="modal" data-target="#modalInformation">Aceptar</button>
+        </div>
+    </form>
+
+    <div class="modal fade" id="modalInformation" tabindex="-1" role="dialog" aria-labelledby="labelModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="l">Informacion de la persona</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" maxlength="50" required value={{firstName}}>
+                    <label>Apellido</label>
+                    <input type="text" class="form-control" maxlength="50" required value={{firstLastName}}>
+                    <label>Edad</label>
+                    <input type="text" class="form-control" maxlength="3" required value={{age}}>
+                    <label>Fecha de cumpleaños</label>
+                    <input type="text" class="form-control" maxlength="10" required value={{birthDay}}>
+                    <label>Días flatantes para cumpleaños</label>
+                    <input type="text" class="form-control" maxlength="3" required value={{countDownforBDay}}>
+                    <label *ngIf="poemRecived">Poema</label>
+                    <textarea *ngIf="poemRecived" class="form-control" rows="3" value={{poem}}></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cleanModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'acme-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PeopleInfoFE';
+
+  constructor(private router: Router){}
+
+  ngOnInit(){
+    this.router.navigateByUrl("/main");
+  }
 }
